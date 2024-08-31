@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.HibernateUtil;
+import model.User;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,7 +20,15 @@ public class SaveUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         SessionFactory sessioFactory = HibernateUtil.getSessionFactory();
         Session session = sessioFactory.openSession();
-        session.save(req);
+
+        User user = new User();
+
+        user.setName("ravindu");
+        user.setMobile("0714191871");
+        
+        session.save(user);
+        session.beginTransaction().commit();
+        
     }
 
 }
