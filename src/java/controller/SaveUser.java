@@ -19,7 +19,7 @@ public class SaveUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         SessionFactory sessioFactory = HibernateUtil.getSessionFactory();
         Session session = sessioFactory.openSession();
-
+        session.save(req);
     }
 
 }
