@@ -5,18 +5,30 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author ravinduchathuranga
  */
+@Entity
+@Table(name = "user")
 public class User implements Serializable {
 
+    @Id
     private int id;
+
+    @Column(name = "name", length = 20, nullable = false)
     private String name;
+
+    @Column(name = "mobile", length = 10, nullable = false)
     private String mobile;
 
-    public User() {}
+    public User() {
+    }
 
     /**
      * @return the id
